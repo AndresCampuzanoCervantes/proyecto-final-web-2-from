@@ -97,7 +97,7 @@ const FilsList = () => {
         })
     }
 
-    const select =(id)=>{
+    const select = (id) => {
         history(`/listFilms/${id}`)
     }
 
@@ -110,11 +110,20 @@ const FilsList = () => {
             <div className='container'>
                 {
                     listFilms.map((item) =>
-                        <Card
-                            key={item.id}
-                            className="my-2 card-custom"
-                        >
-                            <div className='row justify-content-end'>
+                        <div key={item.id} className="row">
+                            <Card
+                                className="my-2 card-custom col-10"
+                                onClick={() => { select(item.id) }}
+                            >
+                                <Card.Body
+                                    style={{
+                                        cursor: 'pointer'
+                                    }}
+                                >
+                                    <Card.Title> {item.nombre} </Card.Title>
+                                </Card.Body>
+                            </Card>
+                            <div className='row justify-content-end col-2' style={{ position: 'relative' }}>
                                 <EditList setRegister={setEditRegister} list={item} />
                                 <AiFillDelete
                                     color="#835050"
@@ -127,12 +136,7 @@ const FilsList = () => {
                                         backgroundColor: "#a17878a2"
                                     }} />
                             </div>
-                            <Card.Body style={{
-                                cursor: 'pointer'
-                            }} onClick={()=>{select(item.id)}}>
-                                <Card.Title> {item.nombre} </Card.Title>
-                            </Card.Body>
-                        </Card>
+                        </div>
                     )
                 }
 

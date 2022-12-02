@@ -30,6 +30,10 @@ const MenuBar = ({ nameMenu }) => {
             url: 'searchMovies'
         },
         {
+            nameMenu: "Parameters",
+            url: 'parameters'
+        },
+        {
             nameMenu: "User Information",
             url: 'user'
         },
@@ -90,7 +94,7 @@ MenuBar.propTypes = {
 }
 
 MenuBar.defaultProps = {
-    nameMenu: "CRUD PELISPLUS"
+    nameMenu: "CRUD MOVIESPLUS"
 }
 
 export default MenuBar
