@@ -1,0 +1,44 @@
+.div1{
+    position: relative;
+    top: 90%;
+    width: 100%;
+}
+
+.div2{
+    font-size: 37px;
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    color: gray;
+    font-weight: bold;
+}
+
+.div3{
+    text-align: center;
+    color: gray;
+    margin-top: 78px;
+}
+
+.div4{
+    font-size: 16px;
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    color: gray;
+}
+
+.i1{
+    font-size: 100px;
+    transform: scaleX(-1);    
+}
+
+#arrow_home {
+    margin-left: 1%;
+    width: 70px;
+    transform: rotate(-45deg);
+    opacity: 0.6;
+    animation-duration: 2s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}

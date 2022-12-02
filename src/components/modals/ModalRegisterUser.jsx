@@ -52,7 +52,7 @@ const ModalRegisterUser = ({ showModal, hendleModal }) => {
         })
 
         const data = result.data
-        if (data.success) {
+        if (data.userCreated.success) {
             Swal.fire({
                 icon: 'success',
                 title: 'Registered',
@@ -63,7 +63,7 @@ const ModalRegisterUser = ({ showModal, hendleModal }) => {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: data.message
+                text: data.userCreated.message
             })
         }
     }

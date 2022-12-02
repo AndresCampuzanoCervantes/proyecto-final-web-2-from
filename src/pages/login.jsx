@@ -1,4 +1,5 @@
-import React from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
 import { useNavigate } from "react-router-dom";
 import '../styles/login.css'
@@ -7,20 +8,23 @@ import ModalRegisterUser from '../components/modals/ModalRegisterUser';
 import axios from '../utils/connection';
 
 const Login = () => {
-  const [email, setEmail] = React.useState('')
-  const [password, setPassword] = React.useState('')
-  const [showModal, setShowModal] = React.useState(false)
-  const [loading, setLoadin] = React.useState(false)
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [showModal, setShowModal] = useState(false)
+  const [loading, setLoadin] = useState(false)
   const history = useNavigate();
 
-  const startLogin = () => {
-    const params = JSON.parse(localStorage.getItem('session'));
-    if (params) {
-      history('/home')
-    }
-  }
 
-  startLogin();
+  useEffect(() => {
+    const startLogin = () => {
+      const params = JSON.parse(localStorage.getItem('session'));
+      if (params) {
+        history('/home')
+      }
+    }
+    startLogin();
+  }, [])
+
 
   const consultarUsuario = async () => {
     try {
@@ -119,6 +123,9 @@ const Login = () => {
             </div>
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1 animate__animated animate__fadeInDown animate__faster animate__delay-1s from-div rounded-3">
               <form onSubmit={handleSubmit} >
+                <div className='text-center my-4 fs-1 fw-bolder' style={{ paddingRight: "100px" }}>
+                  CRUD PELISPLUS
+                </div>
                 <div className="form-outline mb-4 ">
                   <label className="form-label fw-bold mt-3" htmlFor="email">Email:</label>
                   <input

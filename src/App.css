@@ -11,18 +11,7 @@
   ::-webkit-scrollbar {
     width: 0;
   }
-  
-  @media (min-width: 1600px) {
-    .container-custom {
-      max-width: 1800px;
-    }
-  }
-  
-  .container-custom {
-    margin-left: 5%;
-    margin-right: 5%;
-  }
-  
+
   .loading {
     width: 3rem; height: 3rem;
   }
