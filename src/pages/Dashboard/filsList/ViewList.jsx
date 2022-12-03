@@ -33,8 +33,9 @@ const ViewList = () => {
                     }
                 });
         }
-        getFilms();
         getStatus();
+        getFilms();
+
     }, [])
 
     const formatDate = (date) => {
@@ -109,8 +110,8 @@ const ViewList = () => {
                 }).then(() => {
                     const list = listFilms.map(item => {
                         if (item.id === data.movieUpdated.movieUpdated.id) {
-                            return{ 
-                                ...data.movieUpdated.movieUpdated, 
+                            return {
+                                ...data.movieUpdated.movieUpdated,
                                 fecha_lanzamiento: formatDate(data.movieUpdated.movieUpdated.fecha_lanzamiento.replace("T", " ").replace("Z", " "))
                             }
                         } else {
@@ -140,7 +141,7 @@ const ViewList = () => {
     return (
         <>
             <MenuBar />
-            <div className='row justify-content-end'>
+            <div className='row justify-content-end mb-2' style={{ marginLeft: '5%', marginRight: '5%' }}>
                 <button
                     className="col-1 rounded-circle me-5 justify-content-center align-self-center btn-custom"
                     style={{ height: 50, width: 50, border: 'none' }}
@@ -159,65 +160,72 @@ const ViewList = () => {
                         }
                     />
                 </button>
-                <div>
-                    {
-                        listFilms.length > 0 ?
-                            <div style={{ marginLeft: '5%', marginRight: '5%' }}>
-                                <div className="row justify-content-start">
-                                    {
-                                        listFilms.map((item) => (
-                                            <Card
-                                                key={item.id}
-                                                style={{
-                                                    width: 548.571428571,
-                                                    textAlign: 'justify',
-                                                    padding: 0,
-                                                    border: 'none',
-                                                    borderRadius: '5%',
-                                                    backgroundColor: item.view_ED_parametro===1?'#fff':item.view_ED_parametro===2?'#9fc5ff':'#666a70'
-                                                }}
-                                                className="m-2"
-                                            >
-                                                <Dropdown as={ButtonGroup}>
-                                                    <Dropdown.Toggle style={{
-                                                        position: 'absolute',
-                                                        right: 5,
-                                                        borderRadius: '50%',
-                                                        backgroundColor: '#efefef6e',
-                                                        top: 10,
-                                                        border: 'none',
-                                                        cursor: 'pointer',
-                                                    }}>
-                                                    </Dropdown.Toggle>
-                                                    <Dropdown.Menu>
-                                                        {
-                                                            listStatus.map(item2 => <Dropdown.Item key={item2.id} onClick={() => { updateStatus(item, item2.id) }}>{item2.valor_parametro}</Dropdown.Item>)
-                                                        }
-                                                        <Dropdown.Item onClick={() => { deletemovie(item) }}>Remove</Dropdown.Item>
-                                                    </Dropdown.Menu>
-                                                </Dropdown>
-                                                <img alt={item.nombre} width='100%' style={{ borderTopLeftRadius: '5%', borderTopRightRadius: '5%' }} src={`https://image.tmdb.org/t/p/original${item.path_imagen}`} />
-                                                <Card.Body>
-                                                    <Card.Title>{item.nombre}</Card.Title>
-                                                    <Card.Subtitle className="mb-2 text-muted">{item.fecha_lanzamiento}</Card.Subtitle>
-                                                    <Card.Text>
-                                                        {item.sinopsis}
-                                                    </Card.Text>
-                                                </Card.Body>
-
-                                            </Card>
-                                        ))
-                                    }
-                                </div>
-                            </div>
-                            :
-                            <div className="div4 align-middle" style={{ height: '80vh', padding: 0 }}>
-                                registers not finded.
-                            </div>
-                    }
-                </div>
-
             </div>
+            <div>
+                {
+                    listFilms.length > 0 ?
+                        <div style={{ marginLeft: '5%', marginRight: '5%' }}>
+                            <div className="row justify-content-start">
+                                {
+                                    listFilms.map((item) => (
+                                        <Card
+                                            key={item.id}
+                                            style={{
+                                                width: 548.571428571,
+                                                textAlign: 'justify',
+                                                padding: 0,
+                                                border: 'none',
+                                                borderRadius: '5%',
+                                                backgroundColor: item.view_ED_parametro === 1 ? '#9fff9f' : item.view_ED_parametro === 2 ? '#9fc5ff' : '#ff9f9f'
+                                            }}
+                                            className="m-2"
+                                        >
+                                            <Dropdown as={ButtonGroup}>
+                                                <Dropdown.Toggle style={{
+                                                    position: 'absolute',
+                                                    right: 5,
+                                                    borderRadius: '50%',
+                                                    backgroundColor: '#efefef6e',
+                                                    top: 10,
+                                                    border: 'none',
+                                                    cursor: 'pointer',
+                                                }}>
+                                                </Dropdown.Toggle>
+                                                <Dropdown.Menu>
+                                                    {
+                                                        listStatus.map(item2 =>
+                                                            <Dropdown.Item
+                                                                key={item2.id}
+                                                                onClick={() => { updateStatus(item, item2.id) }}
+                                                            >
+                                                                {item2.valor_parametro}
+                                                            </Dropdown.Item>)
+                                                    }
+                                                    <Dropdown.Item onClick={() => { deletemovie(item) }}>Remove</Dropdown.Item>
+                                                </Dropdown.Menu>
+                                            </Dropdown>
+                                            <img alt={item.nombre} width='100%' style={{ borderTopLeftRadius: '5%', borderTopRightRadius: '5%' }} src={`https://image.tmdb.org/t/p/original${item.path_imagen}`} />
+                                            <Card.Body>
+                                                <Card.Title>{`${item.nombre} - ${listStatus.find(item2 => item2.id === item.view_ED_parametro).valor_parametro}`}</Card.Title>
+                                                <Card.Subtitle className="mb-2 text-muted">{item.fecha_lanzamiento}</Card.Subtitle>
+                                                <Card.Text>
+                                                    {item.sinopsis}
+                                                </Card.Text>
+                                            </Card.Body>
+
+                                        </Card>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                        :
+                        <div className="div4 align-middle" style={{ height: '80vh', padding: 0 }}>
+                            registers not finded.
+                        </div>
+                }
+            </div>
+
+
         </>
     )
 }

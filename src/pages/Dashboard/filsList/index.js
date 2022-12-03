@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react'
 import { Card } from 'react-bootstrap';
 import { AiFillDelete } from 'react-icons/ai';
@@ -19,7 +20,6 @@ const FilsList = () => {
             const list = [...listFilms, newRegister];
             setListFilms(list)
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [newRegister]);
 
     useEffect(() => {
@@ -33,7 +33,6 @@ const FilsList = () => {
             });
             setListFilms(list)
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [editRegister]);
 
     useEffect(() => {
@@ -45,7 +44,6 @@ const FilsList = () => {
             });
         }
         getList();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const deleteList = (item) => {
