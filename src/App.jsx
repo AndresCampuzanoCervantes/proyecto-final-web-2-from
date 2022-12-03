@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from "react-router";
-import "./app.css"
+import "./App.css"
 import MenuBar from "./components/Navbar";
 import { FilsList, Home, Login, SearchMovies, ViewList, User } from "./pages";
 
