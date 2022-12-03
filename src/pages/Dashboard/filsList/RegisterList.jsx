@@ -70,7 +70,7 @@ const RegisterList = ({ setNewRegister }) => {
     return (
         <>
             <button
-                className="col-1 rounded-circle me-5 justify-content-center align-self-center btn-custom"
+                className="col-1 rounded-circle justify-content-center align-self-center btn-custom"
                 style={{ height: 50, width: 50, border: 'none' }}
                 onClick={hendelShow}
             >

@@ -4,7 +4,6 @@ import { ButtonGroup, Card, Dropdown } from 'react-bootstrap';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { useNavigate, useParams } from 'react-router';
 import Swal from 'sweetalert2';
-import MenuBar from '../../../components/Navbar'
 import axios from '../../../utils/connection';
 const ViewList = () => {
     const history = useNavigate();
@@ -140,7 +139,6 @@ const ViewList = () => {
     }
     return (
         <>
-            <MenuBar />
             <div className='row justify-content-end mb-2' style={{ marginLeft: '5%', marginRight: '5%' }}>
                 <button
                     className="col-1 rounded-circle me-5 justify-content-center align-self-center btn-custom"

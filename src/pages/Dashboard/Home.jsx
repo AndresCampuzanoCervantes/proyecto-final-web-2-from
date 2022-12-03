@@ -1,13 +1,9 @@
 import React from 'react'
-import MenuBar from '../../components/Navbar'
 import arrow_home from '../../assets/photo/arrow_home.png'
 import "../../styles/home.css"
 const Home = () => {
     return (
         <>
-            <div>
-                <MenuBar />
-            </div>
             <img id="arrow_home" src={arrow_home} alt="" />
             <div className="div1">
                 <div className="div2">Welcome to the Home</div>

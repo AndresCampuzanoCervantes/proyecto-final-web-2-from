@@ -2,7 +2,6 @@
 import axios from 'axios'
 import { useEffect,  useState } from 'react'
 import { Card, Modal } from 'react-bootstrap';
-import MenuBar from '../../../components/Navbar'
 import axiosLocal from '../../../utils/connection'
 import "../../../styles/listStyle.css"
 import Swal from 'sweetalert2';
@@ -118,7 +117,6 @@ const SearchMovies = () => {
 
     return (
         <>
-            <MenuBar />
             <ModalSelectList listFilms={listFilms} setShow={setShow} show={show} movie={movie} />
             <div style={{ marginLeft: '5%', marginRight: '5%' }}>
                 <div className="row d-flex justify-content-around align-items-center">

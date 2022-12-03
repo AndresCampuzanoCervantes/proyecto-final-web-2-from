@@ -1,16 +1,16 @@
 .btn-custom {
-    background-color: #0d6efd
+    background-color: #3f88f7;
+    
 }
 
 .btn-custom:hover{
-    background-color: #0f53b9
+    background-color: #5799fc
 }
 
 .card-custom {
-    background-color: #82b3fd7c
+    background-color: #9fc5ff
 }
 
 .card-custom:hover{
-    background-color: #2a77ebe5;
-    color: #ffff;
+    background-color: #9fc5ffc2;
 }

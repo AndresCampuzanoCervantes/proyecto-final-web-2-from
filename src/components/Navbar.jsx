@@ -30,10 +30,6 @@ const MenuBar = ({ nameMenu }) => {
             url: 'searchMovies'
         },
         {
-            nameMenu: "Parameters",
-            url: 'parameters'
-        },
-        {
             nameMenu: "User Information",
             url: 'user'
         },
@@ -44,18 +40,16 @@ const MenuBar = ({ nameMenu }) => {
         }
     ]
 
-
-
-
     return (
         <>
-            <Navbar bg="primary" expand={false} className="mb-3">
+            <Navbar style={{backgroundColor:'#9fc5ff'}} expand={false} className="mb-3">
                 <Container fluid>
                     <Navbar.Offcanvas
                         className="Navbar-Offcanvas"
                         placement="start"
                         show={showMenu}
                         onHide={() => setShowMenu(false)}
+                    
                     >
                         <Offcanvas.Header closeButton>
                             <Offcanvas.Title className="fw-bolder" >
@@ -70,7 +64,10 @@ const MenuBar = ({ nameMenu }) => {
                                             key={index}
                                             style={{ marginTop: 5 }}
                                             className="text-center btn btn-outline-primary"
-                                            onClick={() => item.onPress?item.onPress():history(`/${item.url}`)}
+                                            onClick={() => {
+                                                setShowMenu(!showMenu);
+                                                item.onPress?item.onPress():history(`/${item.url}`)
+                                            }}
                                         >
                                             {item.nameMenu}
                                         </button>
@@ -81,7 +78,7 @@ const MenuBar = ({ nameMenu }) => {
                         </Offcanvas.Body>
                     </Navbar.Offcanvas>
                     <Navbar.Toggle className="p-0" onClick={() => setShowMenu(!showMenu)} />
-                    <Navbar.Brand className="navBar text-light" href="#">{nameMenu}</Navbar.Brand>
+                    <Navbar.Brand className="navBar fw-bold">{nameMenu}</Navbar.Brand>
                 </Container>
 
             </Navbar>

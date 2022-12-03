@@ -4,7 +4,6 @@ import { Card } from 'react-bootstrap';
 import { AiFillDelete } from 'react-icons/ai';
 import { useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
-import MenuBar from '../../../components/Navbar';
 import "../../../styles/filslist.css"
 import axios from '../../../utils/connection';
 import EditList from './EditList';
@@ -101,11 +100,10 @@ const FilsList = () => {
 
     return (
         <>
-            <MenuBar />
-            <div className='row justify-content-end'>
+            <div className='container'>
+            <div className='row justify-content-end my-4'>
                 <RegisterList setNewRegister={setNewRegister} />
             </div>
-            <div className='container'>
                 {
                     listFilms.map((item) =>
                         <div key={item.id} className="row">
