@@ -33,7 +33,8 @@ const SearchMovies = () => {
     useEffect(() => {
         getMovies();
         const getList = () => {
-            axiosLocal.get("/films/getFilms").then(({ data }) => {
+            const params = JSON.parse(localStorage.getItem('session'));
+            axiosLocal.get("/films/getFilms/"+params.user.id).then(({ data }) => {
                 setListFilms(data.films)
             }).catch((e) => {
                 console.log(e)
