@@ -36,7 +36,8 @@ const FilsList = () => {
 
     useEffect(() => {
         const getList = () => {
-            axios.get("/films/getFilms").then(({ data }) => {
+            const params = JSON.parse(localStorage.getItem('session'));
+            axios.get("/films/getFilms/"+params.user.id).then(({ data }) => {
                 setListFilms(data.films)
             }).catch((e) => {
                 console.log(e)
@@ -101,9 +102,9 @@ const FilsList = () => {
     return (
         <>
             <div className='container'>
-            <div className='row justify-content-end my-4'>
-                <RegisterList setNewRegister={setNewRegister} />
-            </div>
+                <div className='row justify-content-end my-4'>
+                    <RegisterList setNewRegister={setNewRegister} />
+                </div>
                 {
                     listFilms.map((item) =>
                         <div key={item.id} className="row">
